@@ -4,9 +4,11 @@ from sqlalchemy import (
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+
 # executing the instructions from our localhost "chinook" db
 db = create_engine("postgresql:///chinook")
 base = declarative_base()
+
 
 # create a class-based model for the "Artist" table
 class Artist(base):
@@ -14,12 +16,14 @@ class Artist(base):
     ArtistId = Column(Integer, primary_key=True)
     Name = Column(String)
 
+
 # create a class-based model for the "Album" table
 class Album(base):
     __tablename__ = "Album"
     AlbumId = Column(Integer, primary_key=True)
     Title = Column(String)
     ArtistId = Column(Integer, ForeignKey("Artist.ArtistId"))
+
 
 # create a class-based model for the "Track" table
 class Track(base):
@@ -33,6 +37,7 @@ class Track(base):
     Milliseconds = Column(Integer, primary_key=False)
     Bytes = Column(Integer, primary_key=False)
     UnitPrice = Column(Float)
+
 
 # instead of connecting to the database directly, we will ask for a session
 # to create a new instance of sessionmaker, then point to our engine (the db)
