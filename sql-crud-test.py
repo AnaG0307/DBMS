@@ -48,8 +48,12 @@ france = FavPlaces(
 )
 
 # session.add(catalunya)
-session.add(uk)
-session.add(france)
+# session.add(uk)
+# session.add(france)
+
+# updating a single record
+
+
 
 # query database to find all records
 places = session.query(FavPlaces)
